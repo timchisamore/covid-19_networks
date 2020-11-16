@@ -1,0 +1,3 @@
+This R project takes Case and Contact Managment (CCM) data and produces an HTML COVID-19 network report using RMarkdown. Specifically, we plot the potential transmission of COVID-19 in cases and contacts using directed graphs.
+
+The intentions of the project are to automate the process and to make dissemination of the product easier. We used the drake package to manage our workflow as there is quite a bit going on in terms of data cleaning and analysis with multiple datasources. we also use the renv package to capture the packages versions being used to ensure long-term stability of the report.
