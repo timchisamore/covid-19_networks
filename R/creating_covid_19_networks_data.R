@@ -1,0 +1,35 @@
+#' Creating COVID-19 networks data
+#'
+#' This function takes the joined CCM exposure investigations and exposures data
+#' and creates a `tbl_graph` object using the `tidygraph` package. Afterwards,
+#' we join our clean CCM investigations data to the nodes by investigation
+#' number. This provides note attributes, such as episode date.
+#'
+#' @param join_ccm_exposure_investigations_and_exposures_data A `tbl_df` of
+#' joined CCM exposure investigations and exposures data.
+#' @param clean_ccm_investigations_data A `tbl_df` of clean CCM investigations
+#' data.
+#'
+#' @return A `tbl_graph` of COVID-19 networks data.
+#' @export
+#'
+#' @examples
+#' `creating_covid_19_networks_data(join_ccm_exposure_investigations_and_exposures_data, clean_ccm_investigations_data)`
+creating_covid_19_networks_data <-
+  function(join_ccm_exposure_investigations_and_exposures_data,
+           clean_ccm_investigations_data) {
+    create_covid_19_networks_data <-
+      tbl_graph(
+        nodes = creating_node_data(join_ccm_exposure_investigations_and_exposures_data),
+        edges = creating_edge_data(join_ccm_exposure_investigations_and_exposures_data),
+        node_key = "name",
+        directed = TRUE
+      ) %>%
+      activate("nodes") %>%
+      left_join(
+        clean_ccm_investigations_data,
+        by = c(name = "investigation_number")
+      )
+
+    return(create_covid_19_networks_data)
+  }
