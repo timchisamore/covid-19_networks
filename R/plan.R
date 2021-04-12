@@ -8,8 +8,8 @@ plan <- drake_plan(
   clean_ccm_exposures_data = cleaning_ccm_exposures_data(raw_ccm_exposures_data),
   clean_ccm_investigations_data = cleaning_ccm_investigations_data(raw_ccm_investigations_data),
   join_ccm_exposure_investigations_and_exposures_data = joining_ccm_exposure_investigations_and_exposures_data(clean_ccm_exposure_investigations_transmission_data, clean_ccm_exposure_investigations_acquisition_data, clean_ccm_exposures_data),
-  create_covid_19_networks_data = creating_covid_19_networks_data(join_ccm_exposure_investigations_and_exposures_data, clean_ccm_investigations_data),
-  # get_covid_19_networks_plot = getting_covid_19_networks_plot(get_covid_19_networks_data),
+  create_covid_19_network_data = creating_covid_19_network_data(join_ccm_exposure_investigations_and_exposures_data, clean_ccm_investigations_data),
+  create_covid_19_network_plot = creating_covid_19_network_plot(create_covid_19_network_data),
   # report = rmarkdown::render(
   #   input = knitr_in(!!here::here("documents", "covid_19_networks.Rmd")),
   #   output_file = file_out(!!here::here("documents", "covid_19_networks.html"))
