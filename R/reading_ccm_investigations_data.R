@@ -24,6 +24,7 @@ reading_ccm_investigations_data <- function(ccm_investigations_path) {
       `Investigation Outbreak: Outbreak Number` = col_character(),
       `Investigation Outbreak: Outbreak Name` = col_character(),
       `Investigation Outbreak: Outbreak Classification` = col_character(),
+      `Outbreak Subtype` = col_character(),
       `Disease` = col_factor(),
       `Investigation Subtype` = col_factor(),
       `Client Name: Person Client: Gender` = col_factor(),
