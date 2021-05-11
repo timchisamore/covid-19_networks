@@ -6,13 +6,13 @@
 #' other functions within to first join the exposure investigations data and
 #' filter it.
 #'
-#' @param clean_ccm_exposure_investigations_transmission_data A `tbl_df` of our
-#' cleaned CCM exposure investigations - transmission data.
-#' @param clean_ccm_exposure_investigations_acquisition_data A `tbl_df` of our
-#' cleaned CCM exposure invesetigations - acquisition data.
-#' @param clean_ccm_exposures_data A `tbl_df` of our cleaned CCM exposures data.
+#' @param clean_ccm_exposure_investigations_transmission_data A tbl_df of clean
+#' CCM exposure investigations - transmission data.
+#' @param clean_ccm_exposure_investigations_acquisition_data A tbl_df of clean
+#' CCM exposure invesetigations - acquisition data.
+#' @param clean_ccm_exposures_data A tbl_df of clean CCM exposures data.
 #'
-#' @return A `tbl_df` of joined CCM exposure investigations and CCm exposures
+#' @return A tbl_df of joined CCM exposure investigations and CCM exposures
 #' data.
 #' @export
 #'
@@ -29,22 +29,19 @@ joining_ccm_exposure_investigations_and_exposures_data <-
         clean_ccm_exposure_investigations_transmission_data,
         clean_ccm_exposure_investigations_acquisition_data
       )
-    
+
     # filtering our joined CCM exposure investigations data to remove links
     # between the same investigation number (a case could be both a transmission
     # and acquisiton exposure investigation on a given exposure) and where the
     # transmission and acquisition exposure windows don't overlap.
     filter_ccm_exposure_investigations_and_exposures_data <-
       filtering_ccm_exposure_investigations_data(join_ccm_exposure_investigations_data)
-    
+
     # joining the filtered CCM exposure investigations data and the clean
     # CCM exposures data by exposure.
-    joined_ccm_exposure_investigations_and_exposures_data <-
-      inner_join(
-        x = filter_ccm_exposure_investigations_and_exposures_data,
-        y = clean_ccm_exposures_data,
-        by = c(exposure = "exposure_exposure_name")
-      )
-    
-    return(joined_ccm_exposure_investigations_and_exposures_data)
+    inner_join(
+      x = filter_ccm_exposure_investigations_and_exposures_data,
+      y = clean_ccm_exposures_data,
+      by = c(exposure = "exposure_exposure_name")
+    )
   }

@@ -2,18 +2,18 @@
 #'
 #' This function reads the Case and Contact Management (CCM) COVID-19
 #' Investigations data into our R project from a local folder. Note that the
-#' returned object will be a `tbl_df`.
+#' returned object will be a tbl_df.
 #'
-#' @param ccm_investigations_path A `character` representing the pathway to the
-#' CCM Investigations data .csv file.
+#' @param ccm_investigations_path A character representing the pathway to the
+#' CCM Investigations data.
 #'
-#' @return A `tbl_df` of our CCM Investigations data.
+#' @return A tbl_df of raw CCM Investigations data.
 #' @export
 #'
 #' @examples
 #' `reading_ccm_investigations_data(here::here("data", "raw", "ccm_investigations_data.csv"))`
 reading_ccm_investigations_data <- function(ccm_investigations_path) {
-  raw_ccm_investigations_data <- read_csv(
+  read_csv(
     file = ccm_investigations_path,
     col_names = TRUE,
     col_types = cols(
@@ -49,6 +49,4 @@ reading_ccm_investigations_data <- function(ccm_investigations_path) {
       `Investigation Health Unit (RHU): PHU Table Name` = col_factor()
     )
   )
-
-  return(raw_ccm_investigations_data)
 }

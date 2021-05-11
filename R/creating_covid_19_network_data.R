@@ -18,18 +18,15 @@
 creating_covid_19_network_data <-
   function(join_ccm_exposure_investigations_and_exposures_data,
            clean_ccm_investigations_data) {
-    create_covid_19_network_data <-
-      tbl_graph(
-        nodes = creating_node_data(join_ccm_exposure_investigations_and_exposures_data),
-        edges = creating_edge_data(join_ccm_exposure_investigations_and_exposures_data),
-        node_key = "name",
-        directed = TRUE
-      ) %>%
+    tbl_graph(
+      nodes = creating_node_data(join_ccm_exposure_investigations_and_exposures_data),
+      edges = creating_edge_data(join_ccm_exposure_investigations_and_exposures_data),
+      node_key = "investigation_number",
+      directed = TRUE
+    ) %>%
       activate("nodes") %>%
       left_join(
         clean_ccm_investigations_data,
-        by = c(name = "investigation_number")
+        by = "investigation_number"
       )
-
-    return(create_covid_19_network_data)
   }
