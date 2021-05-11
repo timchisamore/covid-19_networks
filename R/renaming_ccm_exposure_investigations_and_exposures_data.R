@@ -17,7 +17,7 @@
 renaming_ccm_exposure_investigations_data <- function(join_ccm_exposure_investigations_and_exposures_data) {
   rename(
     .data = join_ccm_exposure_investigations_and_exposures_data,
-    from = investigation_investigation_number_transmission,
-    to = investigation_investigation_number_acquisition,
+    from = investigation_number_transmission,
+    to = investigation_number_acquisition,
   )
 }

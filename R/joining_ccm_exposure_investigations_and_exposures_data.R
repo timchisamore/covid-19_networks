@@ -42,6 +42,6 @@ joining_ccm_exposure_investigations_and_exposures_data <-
     inner_join(
       x = filter_ccm_exposure_investigations_and_exposures_data,
       y = clean_ccm_exposures_data,
-      by = c(exposure = "exposure_exposure_name")
+      by = "exposure"
     )
   }

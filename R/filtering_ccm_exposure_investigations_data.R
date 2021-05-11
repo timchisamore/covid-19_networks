@@ -23,7 +23,7 @@ filtering_ccm_exposure_investigations_data <-
     # exposure mode per exposure.
     filter(
       .data = join_ccm_exposure_investigations_data,
-      investigation_investigation_number_transmission != investigation_investigation_number_acquisition,
+      investigation_number_transmission != investigation_number_acquisition,
       lubridate::int_overlaps(
         int1 = lubridate::interval(start = beginning_date_of_exposure_contact_transmission, end = end_date_of_exposure_contact_transmission),
         int2 = lubridate::interval(start = beginning_date_of_exposure_contact_acquisition, end = end_date_of_exposure_contact_acquisition)

@@ -16,5 +16,6 @@ cleaning_ccm_investigations_data <- function(raw_ccm_investigations_data) {
     mutate(
       across(.cols = c(contains("date"), -episode_date_type), .fns = str_remove_all, pattern = "[\\.,]"),
       across(.cols = c(contains("date"), -episode_date_type), .fns = lubridate::parse_date_time, orders = c("%Y-%m-%d %I:%M %p", "%Y-%m-%d"))
-    )
+    ) %>%
+    rename(!!!getting_ccm_investigations_field_names())
 }

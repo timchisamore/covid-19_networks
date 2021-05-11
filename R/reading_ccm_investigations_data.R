@@ -34,7 +34,6 @@ reading_ccm_investigations_data <- function(ccm_investigations_path) {
       `Investigation Record Type` = col_factor(levels = c("Case Investigation", "Contact Outreach")),
       `Classification` = col_factor(levels = c("Confirmed", "Probable", "Does Not Meet")),
       `Disposition` = col_factor(),
-      `Closed Reason` = col_factor(),
       `Status` = col_factor(),
       `Epidemiologic link Status` = col_factor(),
       `Epidemiologic linkage` = col_factor(),
