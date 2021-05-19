@@ -17,12 +17,13 @@ reading_ccm_exposure_investigations_transmission_data <- function(ccm_exposure_i
     file = ccm_exposure_investigations_transmission_path,
     col_names = TRUE,
     col_types = cols(
-      `Investigation: Investigation Number` = col_character(),
       `Exposure` = col_character(),
-      `Exposure Mode` = col_factor(),
-      `Exposure Role` = col_factor(),
+      `Exposure Investigation: Exposure Investigation Name` = col_character(),
+      `Exposure Mode` = col_factor(levels = c("Acquisition", "Transmission")),
+      `Exposure Role` = col_factor(levels = c("Attendee", "Patient", "Patron/Customer", "Resident", "Residency", "Staff", "Student", "Visit", "Visitor", "Volunteer", "Work", "Other")),
       `Beginning Date of Exposure Contact` = col_date(format = "%Y-%m-%d"),
-      `End Date of Exposure Contact` = col_date(format = "%Y-%m-%d")
+      `End Date of Exposure Contact` = col_date(format = "%Y-%m-%d"),
+      `Investigation: Investigation Number` = col_character()
     )
   )
 }

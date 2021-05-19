@@ -19,9 +19,9 @@ reading_ccm_exposures_data <- function(ccm_exposures_path) {
     col_types = cols(
       `Exposure: Exposure Name` = col_character(),
       `Exposure Outbreak` = col_character(),
-      `Exposure Type` = col_factor(),
-      `Exposure Setting` = col_factor(),
-      `Exposure Status` = col_factor(),
+      `Exposure Type` = col_factor(levels = c("Community", "Congregate Living", "Household", "Institutional", "Travel")),
+      `Exposure Setting` = col_character(),
+      `Exposure Status` = col_factor(levels = c("In Progress", "Pending", "Complete", "Exposure Ruled Out")),
       `Beginning of Exposure` = col_character(),
       `End of Exposure` = col_character(),
       `Location` = col_character()
