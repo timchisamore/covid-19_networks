@@ -1,5 +1,5 @@
 #' Getting VOC node indices
-#' 
+#'
 #' This function takes the COVID-19 network data and determines the node indices
 #' for cases with either an investigation or outbreak subtype that is a VOC,
 #' i.e., a lineage.
@@ -16,8 +16,9 @@ getting_voc_node_indices <- function(create_covid_19_network_data) {
     activate(what = "nodes") %>%
     as_tibble() %>%
     mutate(node_index = row_number()) %>%
-    filter(investigation_record_type == "Case Investigation",
-           (str_detect(investigation_subtype, "^Lineage") | str_detect(outbreak_subtype, "^Lineage"))) %>%
+    filter(
+      investigation_record_type == "Case Investigation",
+      (str_detect(investigation_subtype, "^Lineage") | str_detect(outbreak_subtype, "^Lineage"))
+    ) %>%
     pull(node_index)
-  
 }

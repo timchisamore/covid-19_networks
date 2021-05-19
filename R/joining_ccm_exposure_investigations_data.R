@@ -25,6 +25,5 @@ joining_ccm_exposure_investigations_data <-
       y = clean_ccm_exposure_investigations_acquisition_data,
       by = "exposure",
       suffix = c("_transmission", "_acquisition")
-    ) %>%
-      relocate(exposure)
+    )
   }
