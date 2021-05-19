@@ -11,10 +11,11 @@
 getting_ccm_exposure_investigations_field_names <- function() {
   # this will allow us to rename the field names from the CCM extract
   c(
-    investigation_number = "investigation_investigation_number",
     exposure = "exposure",
+    exposure_investigation_name = "exposure_investigation_exposure_investigation_name",
     exposure_mode = "exposure_mode",
     beginning_date_of_exposure_contact = "beginning_date_of_exposure_contact",
-    end_date_of_exposure_contact = "end_date_of_exposure_contact"
+    end_date_of_exposure_contact = "end_date_of_exposure_contact",
+    investigation_number = "investigation_investigation_number"
   )
 }
