@@ -16,11 +16,10 @@
 #' @examples
 #' `creating_common_acquisiton_exposures_data(clean_ccm_exposure_investigations_acquisition_data, clean_ccm_exposures_data, clean_ccm_investigations_data)`
 creating_common_acquisition_exposures_data <- function(clean_ccm_exposure_investigations_acquisition_data, clean_ccm_exposures_data, clean_ccm_investigations_data) {
-  clean_ccm_exposure_investigations_acquisition_data %>%
-    left_join(
-      clean_ccm_investigations_data,
-      by = "investigation_number"
-    ) %>%
+  joining_ccm_exposure_investigations_acquisition_and_investigations_data(
+    clean_ccm_exposure_investigations_acquisition_data,
+    clean_ccm_investigations_data
+  ) %>%
     left_join(clean_ccm_exposures_data,
       by = "exposure"
     ) %>%
@@ -32,6 +31,5 @@ creating_common_acquisition_exposures_data <- function(clean_ccm_exposure_invest
     count(exposure,
       location,
       sort = TRUE
-    ) %>%
-    filter(n > 1)
+    )
 }
