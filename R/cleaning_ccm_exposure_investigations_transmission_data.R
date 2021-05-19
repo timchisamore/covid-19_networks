@@ -15,9 +15,11 @@
 cleaning_ccm_exposure_investigations_transmission_data <- function(raw_ccm_exposure_investigations_transmission_data) {
   raw_ccm_exposure_investigations_transmission_data %>%
     janitor::clean_names() %>%
+    rename(!!!getting_ccm_exposure_investigations_field_names()) %>%
     mutate(
       across(.cols = contains("date"), .fns = str_remove_all, pattern = "[\\.,]"),
-      across(.cols = contains("date"), .fns = lubridate::parse_date_time, orders = c("%Y-%m-%d %I:%M %p", "%Y-%m-%d"))
-    ) %>%
-    rename(!!!getting_ccm_exposure_investigations_field_names())
+      across(.cols = contains("date"), .fns = lubridate::parse_date_time, orders = c("%Y-%m-%d %I:%M %p", "%Y-%m-%d")),
+      across(.cols = contains("date"), .fns = lubridate::as_date),
+      exposure_role = fct_explicit_na(exposure_role, na_level = "Missing")
+    )
 }

@@ -13,9 +13,10 @@
 cleaning_ccm_exposures_data <- function(raw_ccm_exposures_data) {
   raw_ccm_exposures_data %>%
     janitor::clean_names() %>%
+    rename(!!!getting_ccm_exposures_field_names()) %>%
     mutate(
       across(.cols = c(contains("date"), beginning_of_exposure, end_of_exposure), .fns = str_remove_all, pattern = "[\\.,]"),
       across(.cols = c(contains("date"), beginning_of_exposure, end_of_exposure), .fns = lubridate::parse_date_time, orders = c("%Y-%m-%d %I:%M %p", "%Y-%m-%d")),
-    ) %>%
-    rename(!!!getting_ccm_exposures_field_names())
+      across(.cols = c(contains("date"), beginning_of_exposure, end_of_exposure), .fns = lubridate::as_date)
+    )
 }
