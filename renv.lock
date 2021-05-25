@@ -597,13 +597,6 @@
       "Repository": "CRAN",
       "Hash": "a399e4773075fc2375b71f45fca186c4"
     },
-    "patchwork": {
-      "Package": "patchwork",
-      "Version": "1.1.0",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Hash": "89ba3e06a77b8ac5f6e7879e4d2ff375"
-    },
     "pillar": {
       "Package": "pillar",
       "Version": "1.4.6",
@@ -687,6 +680,13 @@
       "Source": "Repository",
       "Repository": "CRAN",
       "Hash": "97def703420c8ab10d8f0e6c72101e02"
+    },
+    "rcartocolor": {
+      "Package": "rcartocolor",
+      "Version": "2.0.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "42b5652d8d7b5583710edca989450c2f"
     },
     "readr": {
       "Package": "readr",
