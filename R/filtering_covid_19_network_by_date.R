@@ -28,7 +28,7 @@ filtering_covid_19_network_by_date <- function(create_covid_19_network_data, dat
       x = x,
       y = y,
       fill = iconv(outbreak_name, to = "ASCII//TRANSLIT"),
-      filter = (!is.na(outbreak_name) & outbreak_classification == "Confirmed")
+      filter = (!is.na(outbreak_name) & outbreak_classification %in% c("Confirmed", "Suspect"))
     )) +
     scale_colour_brewer(
       type = "qual",
