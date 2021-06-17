@@ -1,5 +1,5 @@
 #' Writing data
-#' 
+#'
 #' This function writes data to ./data/clean and returns the path as targets
 #' requires.
 #'
@@ -12,7 +12,7 @@
 #' `writing_data(create_common_acquisition_exposures_data)`
 writing_data <- function(data) {
   data_name <- rlang::as_name(enquo(data))
-  
+
   write_csv(x = data, file = here::here("data", "clean", paste0(data_name, ".csv")))
 
   here::here("data", "clean", paste0(data_name, ".csv"))
